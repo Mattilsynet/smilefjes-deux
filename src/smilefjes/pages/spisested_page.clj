@@ -19,7 +19,7 @@
 
 (defn vis-siste-tilsynsresultat [besøk]
   (let [karakter (:tilsynsbesøk/smilefjeskarakter besøk)]
-    [:div.bg-white.rounded-md.border.border-granskog-800.w-52.py-3.flex.flex-col.items-center
+    [:div.bg-white.rounded-md.border.border-granskog-800.w-52.pt-4.pb-7.flex.flex-col.items-center
      [:h2.text-l.flex-1 "Siste tilsynsresultat:"]
      [:div.w-28.my-4 {:title (str "Spisestedet har fått " (plakaten/beskriv-karakter karakter) ".")}
       (icons/karakter->smil karakter)]
@@ -29,6 +29,8 @@
   (let [{:keys [linje1 linje2 poststed postnummer]} (:spisested/adresse spisested)]
     [:div
      [:h1.text-3xl (:spisested/navn spisested)]
+     (when (seq (:spisested/orgnummer spisested))
+       [:div.text-xs.mb-2 "Orgnr. " (:spisested/orgnummer spisested)])
      [:div linje1]
      [:div linje2]
      [:div postnummer " " poststed]]))
@@ -124,7 +126,7 @@
         [:div.flex.mt-5.items-center
          [:div.flex-1.js-select-element-parent
           (vis-spisested-info spisested)
-          [:p.mt-4.mb-2 "Tilsynsresultater:"]
+          [:p.mt-4 "Tilsynsresultater:"]
           [:div.flex.gap-3.md:gap-5
            (map vis-mini-tilsynsresultat (take 4 besøkene))]
           (when-let [resten (seq (drop 4 besøkene))]
@@ -152,6 +154,6 @@
             [:p.my-2.px-5 (plakaten/oppsummer-smilefjeskarakter (:tilsynsbesøk/smilefjeskarakter besøk))]
             [:div.md:px-5.mt-5 (vis-vurderingsoversikt besøk forrige-besøk)]])]
         [:div.md:px-5.my-5 (checkbox {:toggle-class "vis-irrelevavnte-vurderinger"
-                                   :label "Vis alle kravpunkter"})]
+                                      :label "Vis alle kravpunkter"})]
         [:p.px-5.my-10.text-sm
          "Mattilsynet har kontrollert etterlevelsen av sentrale krav i matlovgivningen. Resultatene baserer seg på observasjonene som ble gjort og de opplysningene som ble gitt under inspeksjonen."]]])))
