@@ -3,9 +3,9 @@
         org.clojure/clojurescript {:mvn/version "1.11.60"}
         org.clojure/data.csv {:mvn/version "1.0.1"}
         org.clojure/data.json {:mvn/version "2.4.0"}
-        cheshire/cheshire {:mvn/version "5.13.0"}
         com.datomic/peer {:mvn/version "1.0.6726"}
         dev.weavejester/medley {:mvn/version "1.7.0"}
+        io.mattilsynet/designsystem {:mvn/version "0.0.3.2"}
         no.cjohansen/fontawesome-clj {:mvn/version "2024.01.22"}
         no.cjohansen/powerpack {:git/url "https://github.com/cjohansen/powerpack.git"
                                 :sha "bdba7af6e5e79ebef1a97960b6363d172dfd06a4"}

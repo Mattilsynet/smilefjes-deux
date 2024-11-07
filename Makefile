@@ -22,7 +22,7 @@ docker: docker/build
 publish:
 	docker push $(IMAGE)
 
-test: node_modules
+test:
 	clojure -M:dev -m kaocha.runner
 
 clean:

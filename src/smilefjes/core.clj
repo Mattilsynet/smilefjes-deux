@@ -11,24 +11,15 @@
 
            :optimus/bundles {"app.css"
                              {:public-dir "public"
-                              :paths ["/tailwind-out.css"]}
-
-                             "mtds.css"
-                             {:public-dir "mtds"
-                              :paths ["/style.css"]}
+                              :paths ["/tailwind-out.css"
+                                      "/mtds/styles.css"]}
 
                              "/app.js"
                              {:public-dir "public"
                               :paths ["/js/compiled/app.js"]}}
 
            :optimus/assets [{:public-dir "public"
-                             :paths [#"/images/*.*"]}
-
-                            {:public-dir "mtds"
-                             :paths ["/style.css"
-                                     #"/icons/.+\.svg$"
-                                     #"/logo/.+\.svg$"
-                                     #"/illustrations/.+\.svg$"]}]
+                             :paths [#"/images/*.*"]}]
 
            :powerpack/build-dir "docker/build"
            :powerpack/content-dir "content"
