@@ -10,7 +10,7 @@
     }
 }
 
-.mt-logo-wrapper { height: 60px; width: min(90rem,95vw); margin-right: auto; margin-left: auto; display: flex; align-items: center; }
+.mt-logo-wrapper { font-size: 0.9rem; height: 60px; width: min(90rem,95vw); margin-right: auto; margin-left: auto; display: flex; align-items: center; }
 .mt-logo { width: 252px; max-width: 100%; margin-left: 2px; }
 @media only screen and (min-width: 768px) {
     .mt-logo-wrapper { height: 100px; }

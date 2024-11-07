@@ -1,4 +1,5 @@
-(ns smilefjes.layout)
+(ns smilefjes.layout
+  (:require [mattilsynet.design :as mtds]))
 
 (defn mattilsynet-logo [color]
   [:svg.mt-logo {:viewBox "0 0 252 45" :fill "none" :xmlns "http://www.w3.org/2000/svg"}
@@ -8,8 +9,8 @@
 (defn header [& [{:keys [url]}]]
   [:div.border-b.border-granskog-800
    [:div.mt-logo-wrapper
-    [:a {:href (or url "/")}
-     (mattilsynet-logo "#054449")]]])
+    [:a {:class (mtds/classes :logo)
+         :href url}]]])
 
 (def footer-section-1
   {:header "Mattilsynet"

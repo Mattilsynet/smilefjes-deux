@@ -13,12 +13,22 @@
                              {:public-dir "public"
                               :paths ["/tailwind-out.css"]}
 
+                             "mtds.css"
+                             {:public-dir "mtds"
+                              :paths ["/style.css"]}
+
                              "/app.js"
                              {:public-dir "public"
                               :paths ["/js/compiled/app.js"]}}
 
            :optimus/assets [{:public-dir "public"
-                             :paths [#"/images/*.*"]}]
+                             :paths [#"/images/*.*"]}
+
+                            {:public-dir "mtds"
+                             :paths ["/style.css"
+                                     #"/icons/.+\.svg$"
+                                     #"/logo/.+\.svg$"
+                                     #"/illustrations/.+\.svg$"]}]
 
            :powerpack/build-dir "docker/build"
            :powerpack/content-dir "content"
