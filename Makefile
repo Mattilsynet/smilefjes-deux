@@ -13,7 +13,7 @@ resources/public/tailwind-out.css:
 target/public/js/compiled/app.js: resources/fontawesome-icons
 	clojure -M:build -m figwheel.main -bo prod
 
-docker/build: target/public/js/compiled/app.js resources/public/tailwind-out.css
+docker/build: node_modules target/public/js/compiled/app.js resources/public/tailwind-out.css
 	clojure -X:build
 
 docker: docker/build
