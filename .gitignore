@@ -15,3 +15,5 @@
 /data/vurderinger.csv*
 /preconlog.txt
 /resources/fontawesome-icons/
+/.clj-kondo/
+/.lsp/
