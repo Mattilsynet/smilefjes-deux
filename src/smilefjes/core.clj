@@ -19,7 +19,10 @@
                               :paths ["/js/compiled/app.js"]}}
 
            :optimus/assets [{:public-dir "public"
-                             :paths [#"/images/*.*"]}]
+                             :paths [#"/images/*.*"
+                                     "/mtds/favicon.svg"
+                                     "/mtds/favicon.ico"
+                                     "/mtds/favicon-dark.ico"]}]
 
            :powerpack/build-dir "docker/build"
            :powerpack/content-dir "content"

@@ -63,9 +63,9 @@
 (defn get-standard-head-elements [ctx page]
   (list
    [:title (:page/title page)]
-   [:link {:rel "apple-touch-icon" :sizes "180x180" :href "https://www.mattilsynet.no/apple-touch-icon.png"}]
-   [:link {:rel "icon" :type "image/png" :sizes "32x32" :href "https://www.mattilsynet.no/favicon-32x32.png"}]
-   [:link {:rel "icon" :type "image/png" :sizes "16x16" :href "https://www.mattilsynet.no/favicon-16x16.png"}]))
+   [:link {:rel "icon" :href "/mtds/favicon.svg" :type "image/svg+xml"}]
+   [:link {:rel "icon" :href "/mtds/favicon.ico" :media "(prefers-color-scheme: light)"}]
+   [:link {:rel "icon" :href "/mtds/favicon-dark.ico" :media "(prefers-color-scheme: dark)"}]))
 
 (defn get-tracking-pixel [ctx]
   (when-let [site-id (:matomo/site-id ctx)]
