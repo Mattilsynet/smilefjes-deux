@@ -2,6 +2,7 @@
   (:require [clojure.java.io :as io]
             [datomic-type-extensions.api :as d]
             [fontawesome.icons :as icons]
+            [powerpack.hiccup :as hiccup]
             [smilefjes.layout :as layout]
             [smilefjes.link :as link]
             [smilefjes.search-index :as index]
@@ -34,7 +35,7 @@
             :lookup (mapv #(format-lookup ctx %) spisesteder)}}))
 
 (defn svg [url]
-  (slurp (io/resource (str "public" url))))
+  (hiccup/unescape (slurp (io/resource (str "public" url)))))
 
 (defn render-page [ctx page]
   (layout/with-layout ctx page

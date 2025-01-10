@@ -7,8 +7,7 @@
         dev.weavejester/medley {:mvn/version "1.7.0"}
         io.mattilsynet/design {:mvn/version "0.2.0.14"}
         no.cjohansen/fontawesome-clj {:mvn/version "2024.01.22"}
-        no.cjohansen/powerpack {:git/url "https://github.com/cjohansen/powerpack.git"
-                                :sha "bdba7af6e5e79ebef1a97960b6363d172dfd06a4"}
+        no.cjohansen/powerpack {:mvn/version "2024.12.29"}
         no.cjohansen/replicant {:git/url "https://github.com/cjohansen/replicant.git"
                                 :sha "033d3ad277be4da11ece7690b19470bacec52156"}
         superstring/superstring {:mvn/version "3.2.0"}}
