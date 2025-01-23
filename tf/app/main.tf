@@ -1,5 +1,5 @@
 module "smilefjes-ui" {
-  source = "git@github.com:Mattilsynet/map-tf-cloudrun?ref=v0.9.2"
+  source = "git@github.com:Mattilsynet/map-tf-cloudrun?ref=v0.12.0"
 
   create_cloudrun_service_account_only = false
   service_name = "smilefjes"
