@@ -1,4 +1,4 @@
-name: Build and publish smilefjes.mattilsynet.no
+name: Build and publish smilefjes
 
 on:
   workflow_dispatch: {}
