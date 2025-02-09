@@ -52,17 +52,16 @@ jobs:
     if: needs.preconditions.outputs.cache-hit != 'true'
     runs-on: ubuntu-latest
     outputs:
-      slack-message: ${{ steps.slack.outputs.message_id }}
+      slack-message: ${{ steps.slack.outputs.message-id }}
     steps:
-      - uses: voxmedia/github-action-slack-notify-build@v1.6.0
-        name: Notify build start
+      - name: Notify build start
         id: slack
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
+        uses: Mattilsynet/slacker-action@main
         with:
-          channel_id: C06192XRMNW
-          status: Tar på frakk og lue …
-          color: warning
+          channel-id: C06192XRMNW
+          text: ":neutral_face: Tar på frakk og lue …"
 
   test:
     runs-on: ubuntu-latest
@@ -99,12 +98,11 @@ jobs:
       - name: Notify testing
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          channel_id: C06192XRMNW
-          status: Kjører tester …
-          color: warning
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":slightly_smiling_face: Kjører tester …"
       - name: Test
         run: make test
 
@@ -120,12 +118,11 @@ jobs:
       - name: Notify build
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          channel_id: C06192XRMNW
-          status: Bygger docker image …
-          color: warning
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":grinning: Bygger docker image …"
       - uses: actions/checkout@v3
       - name: Set up JDK
         uses: actions/setup-java@v3
@@ -188,12 +185,11 @@ jobs:
       - name: Notify publish
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          channel_id: C06192XRMNW
-          status: Publiserer docker image …
-          color: warning
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":smiley: Publiserer docker image …"
       - name: Publish docker image
         run: make publish
 
@@ -219,12 +215,11 @@ jobs:
       - name: Notify publish
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          channel_id: C06192XRMNW
-          status: Henger opp plakaten ...
-          color: warning
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":smile: Henger opp plakaten …"
       - name: Deploying
         uses: google-github-actions/deploy-cloudrun@v1
         with:
@@ -248,12 +243,11 @@ jobs:
       - name: Notify build & push success
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          channel_id: C06192XRMNW
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          status: Ferdig, uten skriftlig veiledning
-          color: good
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":grin: Ferdig, uten skriftlig veiledning"
 
   notify-failure:
     runs-on: ubuntu-latest
@@ -270,12 +264,11 @@ jobs:
       - name: Notify failure
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATION_TOKEN }}
-        uses: voxmedia/github-action-slack-notify-build@v1.6.0
+        uses: Mattilsynet/slacker-action@main
         with:
-          channel_id: C06192XRMNW
-          message_id: ${{ needs.notify-start.outputs.slack-message }}
-          status: Surmunn fra ende til annen! :(
-          color: danger
+          channel-id: C06192XRMNW
+          message-id: ${{ needs.notify-start.outputs.slack-message }}
+          text: ":white_frowning_face: Surmunn fra ende til annen! :("
 
   keepalive-job:
     name: Keep Github Actions alive
