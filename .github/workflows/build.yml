@@ -247,7 +247,7 @@ jobs:
         with:
           channel-id: C06192XRMNW
           message-id: ${{ needs.notify-start.outputs.slack-message }}
-          text: ":grin: Ferdig, uten skriftlig veiledning"
+          text: ":grin: Ditt smil er klart"
 
   notify-failure:
     runs-on: ubuntu-latest
