@@ -194,8 +194,8 @@
   :kravpunkt/hovedområde {:kravpunkt/id "3"}
   :kravpunkt/karakter->tekst {"0" "Ikke avdekket regelverksbrudd som krever oppfølging."
                               "1" "Ikke avdekket regelverksbrudd som krever oppfølging."
-                              "2" "Mangler ved rutiner for å sikre at varm mat er tilstrekkelig varmebehandlet."
-                              "3" "Vesentlige mangler ved rutiner for å sikre at varm mat er tilstrekkelig varmebehandlet."
+                              "2" "Mangler ved rutiner for å sikre at varm mat er tilstrekkelig varmebehandlet eller omsettes ved en temperatur som ikke medfører helserisiko."
+                              "3" "Vesentlige mangler ved rutiner for å sikre at varm mat er tilstrekkelig varmebehandlet eller omsettes ved en temperatur som ikke medfører helserisiko."
                               "4" "Ikke aktuelt."
                               "5" "Ikke vurdert."}}
  {:kravpunkt/id "3.9"
