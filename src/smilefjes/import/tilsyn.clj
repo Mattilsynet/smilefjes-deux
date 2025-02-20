@@ -39,7 +39,9 @@
 
 (def ikke-inkludert-besøk?
   #{"Z2406251324396200239ZDBTB_TilsynAvtale"
-    "Z2408052110267040239GHJEJ_TilsynAvtale"})
+    "Z2408052110267040239GHJEJ_TilsynAvtale"
+    "Z2502181102008880239UIDHI_TilsynAvtale"
+    "Z2502181319313020239LOPJV_TilsynAvtale"})
 
 (defn csv-line->tilsynsbesøk [csv-header csv-line ikke-omfattet-id?]
   (let [m (zipmap csv-header csv-line)
