@@ -18,6 +18,22 @@ module "smilefjes-ui" {
     "memory": "256Mi"
   }
 
+  service_sa_additional_permissions = {
+    access_secrets = ["matnyttig-obscurity"]
+  }
+
+  env_secret_vars = [
+    {
+      name = "OBSCURITY_HEADER"
+      value_from = [{
+        secret_key_ref = {
+          name = "matnyttig-obscurity"
+          key = "latest"
+        }
+      }]
+    }
+  ]
+
   run_under_shared_lb = false
   allow_unauthenticated = true
   ingress = "internal-and-cloud-load-balancing"
