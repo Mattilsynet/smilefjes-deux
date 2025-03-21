@@ -218,7 +218,8 @@ a.mmm-button:link {
  *** Forms: Text input ***
  *************************/
 
-.mmm-input {
+.mmm-input,
+.mmm-textarea {
     width: 100%;
     padding: 0.75em 0.75em;
     border: 1px solid #054449;
@@ -230,9 +231,18 @@ a.mmm-button:link {
     height: 2.75rem;
 }
 
+.mmm-textarea {
+    height: 8rem;
+}
+
 .mmm-input-compact {
     height: 2rem;
     font-size: 0.8rem;
+}
+
+.mmm-error {
+    border-color: #aa2c1c;
+    color: #aa2c1c;
 }
 
 /***************************

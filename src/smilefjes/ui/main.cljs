@@ -10,6 +10,7 @@
             [smilefjes.ui.search :as search-ui]
             [smilefjes.ui.select-element :as select-element]
             [smilefjes.ui.storage :as storage]
+            [smilefjes.ui.survey :as survey]
             [smilefjes.ui.tracking :as tracking]))
 
 (defonce store
@@ -30,6 +31,9 @@
    "search-result" {:component #'sr/SearchResult
                     :prepare #'sr/prepare
                     :boot-actions #'sr/get-boot-actions}
+   "survey" {:component #'survey/render
+             :prepare #'survey/prepare
+             :get-freezer-data #'survey/get-freezer-data}
    "tilsynsassistent" {:prepare #'map/prepare
                        :component #'map/render
                        :get-freezer-data #'map/get-freezer-data}})

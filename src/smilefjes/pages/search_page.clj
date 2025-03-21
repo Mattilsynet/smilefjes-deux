@@ -40,6 +40,7 @@
 (defn render-page [ctx page]
   (layout/with-layout ctx page
     (layout/header {:url "https://www.mattilsynet.no/"})
+    [:div.replicant-root {:data-view "survey"}]
     [:div.bg-sommerdag-200
      [:div.max-w-screen-sm.px-4.py-8.md:py-28.mx-auto.js-autocomplete.relative
       [:h1.text-3xl.mb-2 "Søk etter smilefjes"]

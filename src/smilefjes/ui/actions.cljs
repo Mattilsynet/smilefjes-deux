@@ -63,6 +63,11 @@
                 [{:kind ::assoc-in
                   :args [path (vec (search/search-spisesteder state q))]}]))
 
+            :action/send-survey-response
+            [{:kind ::http-post
+              :url "/tilbakemelding"
+              :body (first args)}]
+
             :action/prevent-default
             [{:kind ::prevent-default
               :event (first args)}]
@@ -89,6 +94,10 @@
                 (js/alert (.-message e))))))
     (.readAsText reader file)))
 
+(defn http-post [{:keys [url body]}]
+  (js/fetch url (clj->js {:method "POST"
+                          :body (pr-str body)})))
+
 (defn execute! [store effects]
   (doseq [[kind fx] (->> (remove nil? effects)
                          (group-by :kind))]
@@ -96,6 +105,7 @@
     (case kind
       ::assoc-in (swap! store assoc-in* (mapcat :args fx))
       ::go-to-location (set! js/window.location (:location (first fx)))
+      ::http-post (run! http-post fx)
       ::read-file (doseq [effect fx] (read-file store effect))
       ::replace-state (js/history.replaceState nil nil (:location (first fx)))
       ::prevent-default (doseq [e (map :event fx)] (.preventDefault e)))))
