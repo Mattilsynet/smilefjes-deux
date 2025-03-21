@@ -8,8 +8,7 @@
         io.mattilsynet/design {:mvn/version "0.2.0.14"}
         no.cjohansen/fontawesome-clj {:mvn/version "2024.01.22"}
         no.cjohansen/powerpack {:mvn/version "2024.12.29"}
-        no.cjohansen/replicant {:git/url "https://github.com/cjohansen/replicant.git"
-                                :sha "033d3ad277be4da11ece7690b19470bacec52156"}
+        no.cjohansen/replicant {:mvn/version "2025.03.02"}
         superstring/superstring {:mvn/version "3.2.0"}}
  :aliases
  {:dev {:extra-paths ["dev" "test" "dev-resources"]

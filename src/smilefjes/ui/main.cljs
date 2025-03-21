@@ -49,8 +49,8 @@
   (doseq [{:keys [el component]} views]
     (replicant/render el (component state))))
 
-(defn handle-event [_rd event actions]
-  (->> (actions/interpolate-event-data event actions)
+(defn handle-event [{:replicant/keys [dom-event]} actions]
+  (->> (actions/interpolate-event-data dom-event actions)
        (actions/perform-actions @store)
        (actions/execute! store)))
 
