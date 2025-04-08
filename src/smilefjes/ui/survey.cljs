@@ -36,9 +36,6 @@
 
 (defn prepare [state]
   (cond
-    (nil? (get-in state [:location :params "survey"]))
-    nil
-
     (::sent? state)
     {:toggle (prepare-toggle state)
      :sections
