@@ -96,7 +96,7 @@
 
 (defn render [survey]
   (when survey
-    [:div.p-4.border-b.border-granskog-800.bg-gåsunge-200
+    [:div.p-4.border-b.border-granskog-800.bg-hvit
      [:div.max-w-screen-lg.mx-auto
       (let [{:keys [text actions icon]} (:toggle survey)]
         [:h2.font-medium.items-center.flex.gap-2.cursor-pointer
