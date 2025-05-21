@@ -14,7 +14,7 @@
  {:dev {:extra-paths ["dev" "test" "dev-resources"]
         :extra-deps {cider/piggieback {:mvn/version "0.5.3"}
                      com.bhauman/figwheel-main {:mvn/version "0.2.18"}
-                     cjohansen/gadget-inspector {:mvn/version "0.2023.04.12"}
+                     no.cjohansen/dataspex {:mvn/version "2025.05.7"}
                      kaocha-noyoda/kaocha-noyoda {:mvn/version "2019-06-03"}
                      lambdaisland/kaocha {:mvn/version "1.87.1366"}
                      org.clojars.abhinav/snitch {:mvn/version "0.1.14"}}}
