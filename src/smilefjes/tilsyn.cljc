@@ -6,5 +6,5 @@
 
 (defn get-besøk [spisested]
   (->> (:tilsynsbesøk/_tilsynsobjekt spisested)
-       (sort-by :tilsynsbesøk/dato)
+       (sort-by :tilsynsbesøk/id)
        reverse))
