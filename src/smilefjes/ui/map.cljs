@@ -208,10 +208,7 @@
 (defn Map [{:keys [features id]}]
   [:div.grow
    {:replicant/key id
-    :replicant/on-update
-    (fn [{:replicant/keys [node life-cycle]}]
-      (when (= :replicant/mount life-cycle)
-        (render-map node features)))}])
+    :replicant/on-mount #(render-map (:replicant/node %) features)}])
 
 (defn Menu [{:keys [text icon actions options]}]
   [:nav.shrink-0.relative.z-10
