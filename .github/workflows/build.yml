@@ -78,7 +78,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Install clojure tools
-        uses: DeLaGuardo/setup-clojure@12.1
+        uses: DeLaGuardo/setup-clojure@13.4
         with:
           cli: 1.11.1.1413
       - name: Cache maven build deps
@@ -130,7 +130,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Install clojure tools
-        uses: DeLaGuardo/setup-clojure@12.1
+        uses: DeLaGuardo/setup-clojure@13.4
         with:
           cli: 1.11.1.1155
       - name: Cache maven build deps
