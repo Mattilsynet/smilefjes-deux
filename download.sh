@@ -1,24 +1,47 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-refresh_data() {
-  local current_etag
-  current_etag=$(cat "$1.etag" 2> /dev/null)
-  local etag
-  etag=$(curl -sI "$2" | grep -i etag | awk '{print $2}' | tr -d '"')
+DATA_DIR="data"
+STAMP_FILE="$DATA_DIR/.last_run_date"
+TODAY="$(date +%F)"   # YYYY-MM-DD
 
-  if [ "$current_etag" != "$etag" ]; then
-    echo "Downloading $2 to $1"
-    curl -s "$2" | sed '1s/^\xEF\xBB\xBF//' > "$1"
-    echo "$etag" > "$1.etag"
-    return 0
-  else
-    echo "Etag for $2 unchanged, not downloading to $1"
-    return 1
-  fi
+already_ran_today() {
+  [[ -f "$STAMP_FILE" ]] && [[ "$(cat "$STAMP_FILE")" == "$TODAY" ]]
 }
 
-mkdir -p data
-refresh_data data/tilsyn.csv "https://data.mattilsynet.no/smilefjes-tilsyn.csv"
-tilsyn=$?
-refresh_data data/vurderinger.csv "https://data.mattilsynet.no/smilefjes-kravpunkter.csv"
-kravpunkter=$?
+mark_ran_today() {
+  printf '%s\n' "$TODAY" > "$STAMP_FILE"
+}
+
+refresh_data_daily() {
+  local out="$1"
+  local url="$2"
+
+  echo "Downloading $url -> $out"
+
+  # -f: fail on HTTP errors, -sS: quiet but show errors, -L: follow redirects
+  curl -fsSL "$url" | sed '1s/^\xEF\xBB\xBF//' > "$out"
+}
+
+main() {
+  mkdir -p "$DATA_DIR"
+
+  if already_ran_today; then
+    echo "Already ran today ($TODAY); skipping."
+    exit 0
+  fi
+
+  # If you want the stamp to only be written after *successful* downloads,
+  # keep it at the end (as below). If you want "only try once per day even if it fails",
+  # move mark_ran_today up before the downloads.
+  refresh_data_daily "$DATA_DIR/tilsyn.csv" \
+    "https://matnyttig.mattilsynet.no/smilefjes/tilsyn.csv"
+
+  refresh_data_daily "$DATA_DIR/vurderinger.csv" \
+    "https://matnyttig.mattilsynet.no/smilefjes/vurderinger.csv"
+
+  mark_ran_today
+
+}
+
+main "$@"
