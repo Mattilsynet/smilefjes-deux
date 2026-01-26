@@ -38,7 +38,8 @@
        (slugify (:navn m)) "." (get-id m) "/"))
 
 (def ikke-inkludert-besøk?
-  #{"Z2406251324396200239ZDBTB_TilsynAvtale"
+  #{"Z1602151520009030239BTVGH_TilsynAvtale"
+    "Z2406251324396200239ZDBTB_TilsynAvtale"
     "Z2408052110267040239GHJEJ_TilsynAvtale"
     "Z2502181102008880239UIDHI_TilsynAvtale"
     "Z2502181319313020239LOPJV_TilsynAvtale"
