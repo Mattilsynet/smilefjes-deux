@@ -6,7 +6,8 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 3 * * *'
+    # Sikre at Matnyttig importen er ferdig, cirka
+    - cron: '15 5 * * *'
 
 permissions:
   id-token: write
