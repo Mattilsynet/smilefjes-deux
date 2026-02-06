@@ -7,7 +7,7 @@ on:
       - main
   schedule:
     # Sikre at Matnyttig importen er ferdig, cirka
-    - cron: '30 5 * * *'
+    - cron: '45 5 * * *'
 
 permissions:
   id-token: write
