@@ -5,9 +5,8 @@ on:
   push:
     branches:
       - main
-  schedule:
-    # Sikre at Matnyttig importen er ferdig, cirka
-    - cron: '45 5 * * *'
+  repository_dispatch:
+    types: [matnyttig-is-ready]
 
 permissions:
   id-token: write
