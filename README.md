@@ -1,4 +1,4 @@
-# Smilefjes-plakater på nett
+# Smilefjesplakater på nett
 
 Her bor løsningen som viser resultatene fra smilefjestilsyn på alle norske
 kaféer og restauranter som er underlagt ordningen på
