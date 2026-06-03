@@ -70,6 +70,10 @@
   :db/valueType :db.type/string
   :db/cardinality :db.cardinality/one}
 
+ {:db/ident :page/body
+  :db/valueType :db.type/string
+  :db/cardinality :db.cardinality/one}
+
  {:db/ident :poststed/postnummer
   :db/valueType :db.type/string
   :db/unique :db.unique/identity

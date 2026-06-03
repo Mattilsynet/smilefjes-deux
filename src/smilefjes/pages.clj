@@ -25,4 +25,7 @@
     (search-page/render-result-page ctx page)
 
     :page.kind/map-page
-    (map-page/render-page ctx page)))
+    (map-page/render-page ctx page)
+
+    :page.kind/csv
+    (:page/body page)))
