@@ -34,8 +34,8 @@
 
 (defn load-json [url]
   #?(:cljs (-> (js/fetch url)
-               (.then #(.text %))
-               (.then #(js->clj (js/JSON.parse %))))))
+               (.then #(.json %))
+               (.then #(js->clj %)))))
 
 (defn pending? [state]
   (or (not (contains? state ::status))
