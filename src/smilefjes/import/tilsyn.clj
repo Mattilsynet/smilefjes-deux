@@ -50,7 +50,8 @@
     "Z2510131507512830240GINIJ_TilsynAvtale"
     "Z2511101621344740239MRHUK_TilsynAvtale"
     "Z2606112348022070239IWMAS_TilsynAvtale"
-    "Z2606251755158670240FUIHX_TilsynAvtale"})
+    "Z2606251755158670240FUIHX_TilsynAvtale"
+    "Z2607100948560890240XPFBJ_TilsynAvtale"})
 
 (defn csv-line->tilsynsbesøk [csv-header csv-line ikke-omfattet-id?]
   (let [m (zipmap csv-header csv-line)
