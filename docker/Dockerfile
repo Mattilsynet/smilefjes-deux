@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:1.31.9
 COPY nginx.conf /etc/nginx/nginx.template
 COPY build /usr/share/nginx/html
 
